@@ -25,12 +25,12 @@ GPIO_18.watch((err, value) => {
   console.log('GPIO_18', GPIO_18_value)
 })
 
-GPIO_27_value.watch((err, value) => {
+GPIO_27.watch((err, value) => {
   if (err) {
     console.log('Error', err)
   }
   GPIO_27_value = value
-  console.log('GPIO_27_value', GPIO_27_value)
+  console.log('GPIO_27', GPIO_27_value)
 })
 
 const ledOut = new Gpio( '16', 'out' );
