@@ -1,16 +1,36 @@
 const { Gpio } = require('onoff')
 
 // set BCM 17 pin as 'input'
-const switchIn = new Gpio('17', 'in', 'both')
+const GPIO_17 = new Gpio('17', 'in', 'both')
+const GPIO_18 = new Gpio('18', 'in', 'both')
+const GPIO_27 = new Gpio('27', 'in', 'both')
+let GPIO_17_value =null
+let GPIO_18_value =null
+let GPIO_27_value =null
 
 // listen for pin voltage change
-switchIn.watch((err, value) => {
+GPIO_17.watch((err, value) => {
   if (err) {
     console.log('Error', err)
   }
+  GPIO_17_value = value
+  console.log('GPIO_17', GPIO_17_value)
+})
 
-  // log pin value (0 or 1)
-  console.log('Pin value', value)
+GPIO_18.watch((err, value) => {
+  if (err) {
+    console.log('Error', err)
+  }
+  GPIO_18_value = value
+  console.log('GPIO_18', GPIO_18_value)
+})
+
+GPIO_27_value.watch((err, value) => {
+  if (err) {
+    console.log('Error', err)
+  }
+  GPIO_27_value = value
+  console.log('GPIO_27_value', GPIO_27_value)
 })
 
 const ledOut = new Gpio( '16', 'out' );
